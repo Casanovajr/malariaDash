@@ -10,14 +10,14 @@
 }
 
 .content {
- flex: 4;
- padding: 20px;
+    flex: 4;
+    padding: 20px;
 }
 
 .wrapper {
-display: flex;
-gap: 20px;
-margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 .main {
@@ -31,8 +31,42 @@ margin-top: 20px;
     display: flex;
     gap: 20px;
     justify-content: space-between;
+    box-sizing: border-box; /* Garante que o preenchimento seja incluído nas dimensões totais */
+    padding: 0 20px; /* Adiciona preenchimento aos lados para compensar as bordas */
+}
+
+.card {
+    flex: 1; /* Ou ajuste conforme necessário */
 }
 
 .side {
     flex: 1;
+}
+
+/* Adiciona regras para telas menores que 768 pixels (pode ajustar conforme necessário) */
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .cards {
+        flex-direction: column;
+        padding: 20px; /* Ajusta o preenchimento para telas menores */
+        margin: auto;
+    }
+
+    .menu, .content, .side {
+        flex: auto; /* Ocupa todo o espaço disponível */
+        margin: auto;
+
+    }
+
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 70%; /* Ajuste conforme necessário */
+        z-index: 1;
+        transform: translateX(-100%);
+    }
 }
